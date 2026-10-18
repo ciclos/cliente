@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import Detalle from './detalle.vue'
 
 const mostrarDetalle = ref(false)
+defineEmits(['abrir-modelos'])
 </script>
 
 <template>
@@ -11,7 +12,7 @@ const mostrarDetalle = ref(false)
       <p>NUEVA COLECCION</p>
       <h1>Corre a tu manera.</h1>
       <p>Zapatillas ligeras, comodas y preparadas para tu ritmo.</p>
-      <a href="#modelos">Ver modelos</a>
+      <a href="#modelos" @click.prevent="$emit('abrir-modelos')">Ver modelos</a>
     </div>
     <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80"
       alt="Zapatillas deportivas blancas" class="clicable" @click="mostrarDetalle = true">
