@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es" style="scroll-behavior:smooth; scroll-padding-top:64px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enunciados: Actividades Prácticas de Vue.js 3</title>
+</head>
+<body style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background:#f1f5f9; color:#1f2937; line-height:1.6; margin:0; padding:0;">
+
+  <nav style="background:#111827; position:sticky; top:0; z-index:10; box-shadow:0 2px 6px rgba(0,0,0,.3);">
+    <ul style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; list-style:none; padding:0 16px;">
+      <li><a href="#v-if" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">1. v-if / v-else</a></li>
+      <li><a href="#v-for" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">2. v-for</a></li>
+      <li><a href="#arrays" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">3. Arrays reactivos</a></li>
+      <li><a href="#computed" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">4. computed()</a></li>
+      <li><a href="#watch" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">5. watch()</a></li>
+      <li><a href="#props" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">6. Props</a></li>
+      <li><a href="#emits" style="display:block; padding:14px 16px; color:#e2e8f0; font-weight:600; text-decoration:none;">7. Eventos y Emits</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width:1000px; margin:0 auto; padding:40px 20px;">
+
+    <!-- CABECERA -->
+    <header style="background:linear-gradient(135deg, #1e3a8a, #2563eb); color:white; border-radius:12px; padding:40px; margin-bottom:40px; box-shadow:0 4px 14px rgba(0,0,0,.1);">
+      <h1 style="margin:0 0 10px; font-size:34px;">Enunciados: Actividades de Vue.js 3</h1>
+      <p style="margin:0; font-size:18px; color:#dbeafe;">Colección de ejercicios prácticos para consolidar directivas, reactividad y comunicación entre componentes utilizando Composition API (<code>&lt;script setup&gt;</code>).</p>
+    </header>
+
+    <!-- BLOQUE 1: v-if / v-else -->
+    <section id="v-if" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 1: Condicionales con <code>v-if</code>, <code>v-else-if</code> y <code>v-else</code></h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 1.1: Interruptor de visibilidad de panel</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>PanelDetalles.vue</code> que gestione la visibilidad de información sensible.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Declara una variable reactiva booleana <code>mostrarInfo</code> (inicializada en <code>false</code>).</li>
+          <li>Añade un botón que alterne el valor entre <code>true</code> y <code>false</code> al hacer clic.</li>
+          <li>El texto del botón debe cambiar dinámicamente ("Mostrar detalles" / "Ocultar detalles").</li>
+          <li>Si está activo, muestra una caja con información técnica (servidor, versión, estado). Si está inactivo, muestra un mensaje invitando al usuario a pulsar el botón.</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 1.2: Clasificador de calificaciones por tramos</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>CalificacionExamen.vue</code> para evaluar una nota académica.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Añade un campo <code>&lt;input type="number"&gt;</code> vinculado con <code>v-model.number</code> a una variable <code>nota</code>.</li>
+          <li>Mediante <code>v-if</code>, <code>v-else-if</code> y <code>v-else</code> muestra el estado según la puntuación:
+            <ul>
+              <li>Menor a 0 o mayor a 10: <em>"Nota no válida"</em>.</li>
+              <li>Menor a 5: <em>"Insuficiente / Suspenso"</em>.</li>
+              <li>Entre 5 y 8.9: <em>"Aprobado / Notable"</em>.</li>
+              <li>9 o superior: <em>"Sobresaliente"</em>.</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 2: v-for -->
+    <section id="v-for" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 2: Renderizado de Listas con <code>v-for</code></h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 2.1: Lista de tareas pendientes con índice</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>ListaTareas.vue</code> para listar cadenas de texto.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Declara un array reactivo con al menos 4 tareas pendientes.</li>
+          <li>Utiliza la directiva <code>v-for="(tarea, index) in tareas"</code> para pintar una lista ordenada con número y nombre de tarea.</li>
+          <li>Controla con <code>v-if</code> que si el array se queda vacío, aparezca un mensaje de felicitación informando que no hay tareas pendientes.</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 2.2: Tabla de catálogo de productos</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>TablaCatalogo.vue</code> para renderizar colecciones de objetos.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Declara un array de objetos donde cada elemento tenga <code>id</code>, <code>nombre</code>, <code>categoria</code> y <code>precio</code>.</li>
+          <li>Construye una tabla HTML con cabecera (<code>&lt;thead&gt;</code>) y filas (<code>&lt;tr&gt;</code>) generadas con <code>v-for</code>.</li>
+          <li>Asegúrate de incluir la directiva <code>:key="item.id"</code> en cada fila para garantizar la identidad única de renderizado.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 3: Arrays reactivos -->
+    <section id="arrays" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 3: Manipulación de Arrays Reactivos</h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 3.1: Añadir y eliminar elementos (Lista de asistencia)</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>GestorInvitados.vue</code> con operaciones de inserción y borrado.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Incluye un campo de entrada de texto y un botón "Añadir".</li>
+          <li>Al pulsar o presionar <kbd>Enter</kbd>, valida que no esté en blanco e inserta el nombre en el array (<code>push</code>).</li>
+          <li>Cada elemento de la lista debe contar con un botón "Eliminar" que suprima dicho elemento por su índice (<code>splice</code>).</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 3.2: Filtrado y ordenación con <code>computed</code></h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>FiltradoAlumnos.vue</code> que derive datos sin mutar el array original.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Crea un array de alumnos con sus respectivas notas numéricas.</li>
+          <li>Añade un <code>&lt;input&gt;</code> para filtrar la lista en tiempo real por coincidencia en el nombre.</li>
+          <li>Añade un botón para conmutar entre orden por defecto y orden descendente de mayor a menor nota.</li>
+          <li>Implementa la lógica mediante una propiedad calculada (<code>computed</code>).</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 4: Computed -->
+    <section id="computed" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 4: Propiedades Computadas con <code>computed()</code></h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 4.1: Calculadora de Carrito de Compras</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>CalculadoraCarrito.vue</code> que calcule totales derivados automáticamente.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Declara un array reactivo con varios artículos (nombre, precio unitario y cantidad).</li>
+          <li>Crea propiedades computadas (<code>computed</code>) para obtener:
+            <ul>
+              <li>El número total de unidades en la cesta.</li>
+              <li>El importe <strong>subtotal</strong> (suma de <code>precio * cantidad</code>).</li>
+              <li>El <strong>IVA</strong> estimado (21% del subtotal).</li>
+              <li>El <strong>total general</strong> de la compra.</li>
+            </ul>
+          </li>
+          <li>Permite modificar la cantidad de cada producto mediante botones dinámicos (+ / -).</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 4.2: Evaluador de Fortaleza de Contraseñas</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>ValidadorPassword.vue</code> para comprobar la robustez de claves.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Añade un campo <code>&lt;input type="password"&gt;</code> enlazado a una variable reactiva <code>password</code>.</li>
+          <li>Implementa propiedades computadas para validar requisitos individuales (longitud ≥ 8, al menos una mayúscula, un número y un símbolo especial).</li>
+          <li>Calcula una puntuación acumulada del 0% al 100% y un nivel descriptivo (Muy débil, Débil, Media, Fuerte).</li>
+          <li>Refleja el resultado dinámicamente en una barra de progreso.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 5: Watchers -->
+    <section id="watch" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 5: Observadores con <code>watch()</code></h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 5.1: Guardado Automático en LocalStorage</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>BlocNotasAutoGuardado.vue</code> que sincronice su estado con almacenamiento local.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Añade un <code>&lt;textarea&gt;</code> para que el usuario escriba notas de texto libre.</li>
+          <li>Utiliza <code>watch()</code> sobre la variable de la nota para detectar escrituras y persistir el contenido en <code>localStorage</code> (con un breve retardo o feedback de estado).</li>
+          <li>Al montar el componente (<code>onMounted</code>), recupera el contenido anterior si existiese en el navegador.</li>
+          <li>Incluye un botón para borrar y limpiar el almacenamiento.</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 5.2: Búsqueda Reactiva con Simulación de API y Historial</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>BuscadorUsuarios.vue</code> con efectos secundarios asíncronos.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Añade un <code>&lt;input&gt;</code> de búsqueda conectado a una variable reactiva.</li>
+          <li>Observa la búsqueda con <code>watch()</code> accediendo a <code>(nuevoValor, viejoValor)</code>.</li>
+          <li>Guarda un registro de historial con las transiciones de búsqueda detectadas.</li>
+          <li>Simula una consulta de red asíncrona (con <code>setTimeout</code> y un indicador de carga / spinner) filtrando una lista de usuarios.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 6: Props -->
+    <section id="props" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 6: Paso de Datos con <code>defineProps</code></h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 6.1: Componente Tarjeta de Usuario (UserCard)</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente hijo reutilizable <code>TarjetaUsuario.vue</code> y consumirlo desde <code>App.vue</code>.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>El componente hijo debe definir las props:
+            <ul>
+              <li><code>nombre</code> (String, obligatorio).</li>
+              <li><code>rol</code> (String, obligatorio).</li>
+              <li><code>activo</code> (Boolean, valor por defecto: <code>true</code>).</li>
+            </ul>
+          </li>
+          <li>Aplica estilos condicionales (opacidad o color de insignia) si la cuenta del usuario no está activa.</li>
+          <li>En <code>App.vue</code>, instancia al menos 3 tarjetas pasando distintos datos por props.</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 6.2: Componente Alerta Reutilizable (CustomAlert)</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Crear un componente <code>AlertaMensaje.vue</code> con validación de propiedades.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Define una prop <code>mensaje</code> (String obligatorio) y una prop <code>tipo</code> (con valor por defecto <code>'info'</code>).</li>
+          <li>Añade una función validadora en la prop <code>tipo</code> para permitir únicamente los valores <code>'info'</code>, <code>'exito'</code> o <code>'peligro'</code>.</li>
+          <li>Aplica clases o estilos acordes al tipo de alerta y utilízalo en <code>App.vue</code> mostrando varios mensajes.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 7: Emits -->
+    <section id="emits" style="background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.08); padding:50px 60px; margin-bottom:40px;">
+      <h1 style="color:#2563eb; font-size:32px; margin:0 0 20px; padding-bottom:12px; border-bottom:3px solid #2563eb;">Bloque 7: Comunicación de Hijo a Padre con <code>defineEmits</code></h1>
+      
+      <article style="margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 7.1: Contador Modular con Emisión de Eventos</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Desacoplar los controles visuales del estado con <code>defineEmits</code>.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Crea el componente hijo <code>BotonesContador.vue</code> con dos botones ("+1" y "-1").</li>
+          <li>Al hacer clic en cada botón, emite los eventos personalizados <code>incrementar</code> o <code>decrementar</code> (sin manipular ningún valor interno).</li>
+          <li>En el componente padre <code>App.vue</code>, almacena la variable reactiva <code>cuenta</code> y escucha ambos eventos para modificarla.</li>
+        </ul>
+      </article>
+
+      <article style="border-left:4px solid #3b82f6; padding-left:20px;">
+        <h2 style="color:#0f172a; font-size:22px; margin-top:0;">Ejercicio 7.2: Formulario hijo que emite un objeto al componente padre</h2>
+        <p style="font-size:17px; margin-bottom:8px;"><strong>Objetivo:</strong> Enviar datos complejos desde un formulario hijo hacia la lista del padre.</p>
+        <ul style="font-size:16px; margin-left:20px; padding:0;">
+          <li>Crea el componente <code>FormularioProducto.vue</code> con campos para nombre y precio.</li>
+          <li>Al enviar el formulario (<code>@submit.prevent</code>), emite el evento personalizado <code>producto-creado</code> pasando como argumento el objeto con los datos introducidos.</li>
+          <li>En <code>App.vue</code>, escucha <code>@producto-creado</code> y añade el objeto recibido a su lista reactiva de productos.</li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+</body>
+</html>
