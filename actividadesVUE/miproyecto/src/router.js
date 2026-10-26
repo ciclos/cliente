@@ -5,6 +5,10 @@ import ListaTareas from './components/listaTareas.vue'
 import TablaCatalogo from './components/tablaCatalogo.vue'
 import GestorInvitados from './components/gestorInvitados.vue'
 import FiltrarAlumnos from './components/filtradoAlumnos.vue'
+import Carrito from './components/carrito.vue'
+import Pass from './components/pass.vue'
+import Bloc from './components/blocNotas.vue'
+
 
 const routes = [
   { path: '/', name: 'inicio', component: Interruptor },
@@ -14,6 +18,9 @@ const routes = [
   { path: '/tablaCatalogo', name: 'tablaCatalogo', component: TablaCatalogo },  
   { path: '/gestorInvitados', name: 'gestorInvitados', component: GestorInvitados },  
   { path: '/filtrarAlumnos', name: 'filtrarAlumnos', component: FiltrarAlumnos },  
+  { path: '/carrito', name: 'carrito', component: Carrito },  
+   { path: '/pass', name: 'pass', component: Pass },  
+   { path: '/bloc', name: 'bloc', component: Bloc },  
   
 ]
 

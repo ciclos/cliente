@@ -23,8 +23,17 @@
     <li>
       <router-link to="/gestorInvitados">Vamos gestor de invitados</router-link>
     </li>
-      <li>
+    <li>
       <router-link to="/filtrarAlumnos">Vamos a filtrar alumnos</router-link>
+    </li>
+    <li>
+      <router-link to="/carrito">Vamos a carrito</router-link>
+    </li>
+     <li>
+      <router-link to="/pass">Vamos a pass</router-link>
+    </li>
+        <li>
+      <router-link to="/bloc">Vamos a bloc</router-link>
     </li>
   </ul>
   <router-view />
