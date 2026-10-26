@@ -5,17 +5,27 @@
 <template>
   <h1>Solucion a los ejercicios de VUE</h1>
   <ul>
-    <li><router-link class="marca" to="/interruptor">A1.1. Interrruptor de visibilidad</router-link>
+    <li>
+      <router-link to="/">Inicio</router-link>
     </li>
-    <li><router-link class="marca" to="/examen">A1.2. Calificador examen</router-link>
+    <li>
+      <router-link to="/interruptor">Vamos a interruptor</router-link>
     </li>
-    <li><router-link class="marca" to="/listaTareas">A2.1. Lista de tareas</router-link>
+    <li>
+      <router-link to="/examen">Vamos a examen</router-link>
     </li>
-    <li><router-link class="marca" to="/tablaCatalogo">A2.2. Tabla catalogo</router-link>
+    <li>
+      <router-link to="/listaTareas">Vamos lista de tareas</router-link>
     </li>
-    <li><router-link class="marca" to="/gestorInvitados">A3.1. Gestor de invitados</router-link>
+    <li>
+      <router-link to="/tablaCatalogo">Vamos a catalago</router-link>
     </li>
-    
+    <li>
+      <router-link to="/gestorInvitados">Vamos gestor de invitados</router-link>
+    </li>
+      <li>
+      <router-link to="/filtrarAlumnos">Vamos a filtrar alumnos</router-link>
+    </li>
   </ul>
   <router-view />
 

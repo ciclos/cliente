@@ -4,6 +4,7 @@ import Examen from './components/calificacionExamen.vue'
 import ListaTareas from './components/listaTareas.vue'
 import TablaCatalogo from './components/tablaCatalogo.vue'
 import GestorInvitados from './components/gestorInvitados.vue'
+import FiltrarAlumnos from './components/filtradoAlumnos.vue'
 
 const routes = [
   { path: '/', name: 'inicio', component: Interruptor },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/listaTareas', name: 'listaTareas', component: ListaTareas },  
   { path: '/tablaCatalogo', name: 'tablaCatalogo', component: TablaCatalogo },  
   { path: '/gestorInvitados', name: 'gestorInvitados', component: GestorInvitados },  
+  { path: '/filtrarAlumnos', name: 'filtrarAlumnos', component: FiltrarAlumnos },  
   
 ]
 
