@@ -8,6 +8,12 @@ import FiltrarAlumnos from './components/filtradoAlumnos.vue'
 import Carrito from './components/carrito.vue'
 import Pass from './components/pass.vue'
 import Bloc from './components/blocNotas.vue'
+import Busqueda from './components/buscadorUsuarios.vue'
+import Tarjeta from './components/tarjetas/tarjeta.vue'
+import Alerta from './components/alerta.vue'
+import Contador from './components/contador/contador.vue'
+import Producto from './components/producto/producto.vue'
+
 
 
 const routes = [
@@ -21,7 +27,12 @@ const routes = [
   { path: '/carrito', name: 'carrito', component: Carrito },  
    { path: '/pass', name: 'pass', component: Pass },  
    { path: '/bloc', name: 'bloc', component: Bloc },  
-  
+  { path: '/buscarUsuarios', name: 'busqueda', component: Busqueda },  
+    { path: '/tarjeta', name: 'tarjeta', component: Tarjeta },  
+    { path: '/alerta', name: 'alerta', component: Alerta },  
+    { path: '/contador', name: 'contador', component: Contador },  
+        { path: '/producto', name: 'producto', component: Producto },  
+    
 ]
 
 export const router = createRouter({

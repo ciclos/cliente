@@ -29,11 +29,26 @@
     <li>
       <router-link to="/carrito">Vamos a carrito</router-link>
     </li>
-     <li>
+    <li>
       <router-link to="/pass">Vamos a pass</router-link>
     </li>
-        <li>
+    <li>
       <router-link to="/bloc">Vamos a bloc</router-link>
+    </li>
+    <li>
+      <router-link to="/buscarUsuarios">Vamos a buscar usuarios</router-link>
+    </li>
+    <li>
+      <router-link to="/tarjeta">Vamos a tarjeta</router-link>
+    </li>
+    <li>
+      <router-link to="/alerta">Vamos a alerta</router-link>
+    </li>
+    <li>
+      <router-link to="/contador">Vamos a contador</router-link>
+    </li>
+    <li>
+      <router-link to="/producto">Vamos a producto</router-link>
     </li>
   </ul>
   <router-view />
