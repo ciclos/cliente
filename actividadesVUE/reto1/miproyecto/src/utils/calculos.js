@@ -1,0 +1,1 @@
+export const UMBRALES = [70, 60, 50]
