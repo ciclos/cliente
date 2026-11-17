@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      const numero = 42;
+      const texto = "Hola";
+      const activo = true;
+      const vacio = null;
+      let sinDefinir;
+
+      console.log(typeof numero); // "number"
+      console.log(typeof texto); // "string"
+      console.log(typeof activo); // "boolean"
+      console.log(typeof vacio); // "object" (comportamiento histórico de JavaScript)
+      console.log(typeof sinDefinir); // "undefined"
+
+      const usuario = {
+        nombre: "Ana",
+        edad: 20,
+      };
+
+      function saludar(nombre) {
+        saludar.vecesLlamada += 1;
+        return `Hola, ${nombre}. Llamada ${saludar.vecesLlamada}`;
+      }
+
+      // Las funciones son objetos: admiten propiedades propias
+      saludar.vecesLlamada = 0;
+
+      console.log(typeof usuario); // "object"
+      console.log(typeof saludar); // "function"
+
+      console.log(saludar("Ana")); // "Hola, Ana. Llamada 1"
+      console.log(saludar("Luis")); // "Hola, Luis. Llamada 2"
+      console.log(saludar.vecesLlamada); // 2
+    </script>
+  </body>
+</html>
