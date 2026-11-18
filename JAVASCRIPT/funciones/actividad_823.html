@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function declarada() {}
+
+      const anonima = function () {};
+
+      const conNombre = function interna() {};
+
+      console.log(declarada.name); // "declarada"
+      console.log(anonima.name); // "anonima" (nombre inferido en motores modernos)
+      console.log(conNombre.name); // "interna"
+
+      const cuentaAtras = function repetir(n) {
+        if (n < 0) return;
+        console.log(n);
+        repetir(n - 1); // usa el nombre interno, no el de la variable
+      };
+
+      const otraReferencia = cuentaAtras;
+      otraReferencia(3); // 3, 2, 1, 0
+    </script>
+  </body>
+</html>

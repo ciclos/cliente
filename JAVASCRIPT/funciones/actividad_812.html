@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function Libro(titulo, autor) {
+        this.titulo = titulo;
+        this.autor = autor;
+      }
+
+      Libro.prototype.resumen = function () {
+        return `${this.titulo} — ${this.autor}`;
+      };
+
+      const libro1 = new Libro("El Quijote", "Cervantes");
+      const libro2 = new Libro("1984", "George Orwell");
+
+      console.log(libro1.resumen()); // "El Quijote — Cervantes"
+      console.log(libro2.resumen()); // "1984 — George Orwell"
+
+      // El método se comparte a través del prototipo
+      console.log(libro1.resumen === libro2.resumen); // true
+      console.log(libro1.hasOwnProperty("resumen")); // false
+      console.log(libro1.constructor === Libro); // true
+      console.log(Object.getPrototypeOf(libro1) === Libro.prototype); // true
+    </script>
+  </body>
+</html>

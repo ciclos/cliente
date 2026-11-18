@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function probar() {
+
+        console.log(saludoLocal());
+        console.log(despedidaLocal());
+        
+
+        function saludoLocal() {
+          return "saludo local";
+        }
+
+        const despedidaLocal = function () {
+          return "despedida local";
+        };
+
+        console.log(typeof saludoLocal); // "function"
+        console.log(typeof despedidaLocal); // "function"
+        console.log(saludoLocal());
+        console.log(despedidaLocal());
+      }
+
+      probar();
+    </script>
+  </body>
+</html>

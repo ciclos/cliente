@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      const resaltador = {
+        prefijo: ">> ",
+        aplicar(texto) {
+          return this.prefijo + texto;
+        },
+      };
+
+      function aplicarATodos(items, callback, contexto) {
+        return items.map((item) => callback.call(contexto, item));
+      }
+
+      const items = ["uno", "dos", "tres"];
+
+      console.log(aplicarATodos(items, resaltador.aplicar, resaltador));
+      // [">> uno", ">> dos", ">> tres"]
+
+      // Alternativa con bind: el contexto queda fijado de antemano
+      const aplicarResaltador = resaltador.aplicar.bind(resaltador);
+      console.log(items.map(aplicarResaltador));
+      // [">> uno", ">> dos", ">> tres"]
+
+      // Sin contexto, this no apunta a resaltador:
+      // en modo estricto es undefined y lanza un error;
+      // en modo no estricto es el objeto global y this.prefijo es undefined.
+      try {
+        console.log(items.map(resaltador.aplicar));
+      } catch (error) {
+        console.log("Error esperado:", error.message);
+      }
+    </script>
+  </body>
+</html>

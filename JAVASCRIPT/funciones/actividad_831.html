@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function procesar(items, callback) {
+        let procesados = 0;
+
+        for (const item of items) {
+          if (typeof callback === "function") {
+            callback(item);
+          }
+          procesados += 1;
+        }
+
+        return procesados;
+      }
+
+      const numeros = [1, 2, 3];
+
+      // Se pasa la referencia a la función, sin paréntesis
+      const mostrarDoble = (n) => console.log(n * 2);
+
+      console.log(procesar(numeros, mostrarDoble));
+      // 2, 4, 6 y después 3
+
+      // Callback anónimo creado en la propia llamada
+      console.log(procesar(numeros, (n) => console.log(n * n)));
+      // 1, 4, 9 y después 3
+
+      // Sin callback: el patrón es opcional
+      console.log(procesar(numeros)); // 3
+    </script>
+  </body>
+</html>

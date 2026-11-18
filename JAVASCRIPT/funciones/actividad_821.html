@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function saludoGlobal() {
+        return "saludo global";
+      }
+
+      function despedidaGlobal() {
+        return "despedida global";
+      }
+
+      function probar() {
+        console.log(typeof saludoGlobal); // ¿?
+        console.log(typeof despedidaGlobal); // ¿?
+        console.log(saludoGlobal()); // ¿?
+        console.log(despedidaGlobal()); // ¿?
+
+        function saludoGlobal() {
+          return "saludo local";
+        }
+
+        var despedidaGlobal = function () {
+          return "despedida local";
+        };
+      }
+
+      probar();
+    </script>
+  </body>
+</html>

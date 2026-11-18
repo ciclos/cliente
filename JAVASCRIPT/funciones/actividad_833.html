@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <
+    <button id="saludar">Saludar</button>
+    <p id="salida">Esperando...</p>
+
+    <script>
+      const boton = document.querySelector("#saludar");
+      const salida = document.querySelector("#salida");
+
+      let temporizador;
+
+      boton.addEventListener("click", () => {
+        salida.textContent = "¡Hola!";
+
+        clearTimeout(temporizador);
+
+        temporizador = setTimeout(() => {
+          salida.textContent = "Mensaje temporal";
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

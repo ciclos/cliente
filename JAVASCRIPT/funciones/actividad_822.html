@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function ejemplo() {
+        for (var i = 1; i <= 3; i++) {
+          var contador = i;
+        }
+
+        if (true) {
+          var mensaje = "hola";
+        }
+
+        console.log(i, contador, mensaje);
+      }
+
+      ejemplo();
+
+      function ejemploModerno() {
+        for (let i = 1; i <= 3; i++) {
+          const contador = i;
+          console.log({ i, contador });
+        }
+
+        if (true) {
+          const mensaje = "hola";
+          console.log(mensaje);
+        }
+
+        // Aquí i, contador y mensaje ya no existen:
+        // console.log(i);       // ReferenceError
+        // console.log(contador); // ReferenceError
+        // console.log(mensaje);  // ReferenceError
+      }
+
+      ejemploModerno();
+    </script>
+  </body>
+</html>
